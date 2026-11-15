@@ -47,7 +47,46 @@ nav a{min-height:44px;display:inline-flex;align-items:center;gap:6px}.video-titl
 .photo-print:before{box-shadow:0 2px 2px #0002;background:linear-gradient(90deg,#c5e66bc9,#d1ee86e0,#c5e66bc9)}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.hero-emblem{transition:transform .35s}.hero-emblem:hover{transform:rotate(-3deg) translateY(-5px)}}
 @media(max-width:700px){.hero{padding-top:65px;padding-bottom:55px;gap:38px}.hero-emblem{width:250px;max-width:76%;margin:0 auto;padding:0}.single-caption{padding:14px 5px 6px;gap:10px}.single-caption strong{font-size:18px}.hero-emblem .button{font-size:13px;padding:10px 12px}.photo-print{transform:rotate(2deg);box-shadow:6px 8px 0 #111,12px 17px 15px #30291f30}.single-sleeve:after{bottom:75px}}
-</style></head><body>
+
+/* Interaction and spacing system */
+:root{--ease-out:cubic-bezier(.22,1,.36,1)}
+section[id]{scroll-margin-top:100px}
+header{position:sticky;top:0;z-index:30;min-height:88px;padding:6px 4vw;background:#080808ed;backdrop-filter:blur(16px);transition:box-shadow .3s,border-color .3s}
+header.is-scrolled{box-shadow:0 10px 35px #0002;border-bottom-color:#ffffff25}
+header .logo{width:74px;height:74px}
+nav{gap:34px}nav a{position:relative;transition:color .2s}
+nav a:not(.contact-link):after{content:"";position:absolute;bottom:4px;left:0;width:100%;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-out)}
+nav a:hover:after,nav a[aria-current="location"]:after{transform:scaleX(1)}nav a[aria-current="location"]{color:var(--lime)}
+.contact-link{border-color:#ffffff45;transition:background .2s,color .2s,border-color .2s}
+.contact-link:hover{background:var(--lime);color:#111;border-color:var(--lime)}
+.button{transition:transform .25s var(--ease-out),box-shadow .25s,background .25s}
+.button:hover{transform:translateY(-3px);box-shadow:0 6px 0 #0003;background:#d3f181}
+.button:active{transform:translateY(0);box-shadow:none}
+.button .arrow-icon,a .arrow-icon{transition:transform .25s var(--ease-out)}
+a:hover>.arrow-icon,.button:hover .arrow-icon{transform:translate(2px,-2px)}
+.hero{min-height:690px;padding-top:115px;padding-bottom:115px;perspective:1400px}
+.hero-emblem{transform:translate3d(var(--sleeve-x,0px),var(--sleeve-y,0px),0) rotate(-6deg);transition:transform .65s var(--ease-out)}
+.hero-emblem:hover{transform:translate3d(var(--sleeve-x,0px),var(--sleeve-y,0px),0) rotate(-4deg)}
+.photo-print{transform:translate3d(var(--photo-x,0px),var(--photo-y,15px),0) rotate(3deg);transition:transform .8s var(--ease-out)}
+.music{padding-top:90px;padding-bottom:95px}.heading{align-items:end;margin-bottom:65px}.heading h2{font-size:clamp(64px,9vw,128px)}
+.featured,.clip{transition:transform .45s var(--ease-out),box-shadow .45s var(--ease-out)}
+.featured:hover{transform:rotate(0) translateY(-5px);box-shadow:14px 18px 0 var(--lime)}
+.clip:first-child:hover,.clip:last-child:hover{transform:rotate(0) translateY(-5px);box-shadow:0 14px 24px #1112}
+.play{transition:transform .35s var(--ease-out),background .25s;box-shadow:0 5px 18px #0003}
+.featured:hover .play{transform:scale(1.1);background:#d5f38c}
+.video-title{padding:24px 26px}.video-pair{gap:6%;margin-top:85px}
+.platforms{gap:35px}.platforms a{transition:color .2s,border-color .2s}.platforms a:hover{color:#536f1a;border-color:#536f1a}
+.band{padding-top:90px;padding-bottom:90px}.band p{line-height:1.45}.live{padding-top:100px;padding-bottom:100px}
+.live .button:hover{background:#292929;box-shadow:0 6px 0 #1113}
+.socials a{transition:color .2s}.socials a:hover{color:var(--lime)}
+.reveal-ready{opacity:0;translate:0 24px;transition:opacity .7s var(--ease-out),translate .7s var(--ease-out)}
+.reveal-ready.is-visible{opacity:1;translate:0 0}
+.skip-link{position:fixed;left:16px;top:-100px;z-index:100;background:var(--lime);color:#111;padding:14px 22px;font-weight:700}.skip-link:focus{top:12px}
+@media(max-width:700px){header{min-height:78px;padding:5px 16px}header .logo{width:64px;height:64px}nav{gap:12px}nav a:not(.contact-link):after{bottom:4px}.contact-link:hover{background:transparent;color:var(--lime)}section[id]{scroll-margin-top:85px}.hero{min-height:0;padding-top:65px;padding-bottom:55px}.music{padding-top:55px;padding-bottom:65px}.heading{margin-bottom:38px}.heading h2{font-size:64px}.video-title{padding:18px}.video-pair{margin-top:50px;gap:36px}.platforms{gap:22px}.band{padding-top:65px;padding-bottom:65px}.live{padding-top:65px;padding-bottom:65px}.photo-print{transform:rotate(2deg)}.hero-emblem:hover{transform:rotate(-6deg)}}
+@media(max-width:380px){header .logo{width:56px;height:56px}nav{gap:10px}}
+@media(prefers-reduced-motion:reduce){.reveal-ready{opacity:1;translate:none}*,*:before,*:after{animation:none!important;transition:none!important}.hero-emblem{transform:rotate(-6deg)!important}.photo-print{transform:rotate(3deg)!important}}
+@media(max-width:700px){.footer-bottom span{display:block}.footer-bottom span+span{margin-top:4px}}
+</style></head><body><a class="skip-link" href="#musica">Ir a la música</a>
 <header><a href="#inicio" aria-label="Salvemos a Nicodemus, inicio"><img class="logo" src="https://yt3.googleusercontent.com/x3fnAnPD2QV3J7x4tWWY76QjCatW1x4AYLyZWuMix1empsk2x-Y6ZB8lSevjs4595nibXG1o7w=s800-c-k-c0x00ffffff-no-rj" alt="Salvemos a Nicodemus" width="160" height="160"></a><nav aria-label="Principal"><a href="#musica">Música</a><a href="#banda">La banda</a><a class="contact-link" href="#contacto">Contacto <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></nav></header>
 <main><section class="hero" id="inicio"><h1>Salvemos a Nicodemus</h1><div class="hero-emblem"><div class="vinyl" aria-hidden="true"><span></span></div><div class="single-sleeve"><img src="https://m.media-amazon.com/images/I/418zrj55%2BKL.jpg" alt="Portada del single Ya no eras tú de Salvemos a Nicodemus" width="500" height="500" fetchpriority="high"><div class="single-caption"><strong>Ya no eras tú</strong><a class="button" href="https://open.spotify.com/track/55VZauilyCG0x6htsrwQQN" target="_blank" rel="noopener">Escuchar <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></div></div><div class="photo-print"><div class="photo-crop"><img src="https://yt3.googleusercontent.com/G0BGkgyuRLK-YpoUQ4V9gXIwHmu_1hbahPjkrShizApODgL1n2xiuQO1JYrFtxCEFWDGQkCv=w2560" alt="Los cinco integrantes de Salvemos a Nicodemus" fetchpriority="high"></div></div></section>
 <section class="music" id="musica"><div class="heading"><h2>Que<br>suene.</h2><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">Todo en YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
@@ -56,4 +95,38 @@ nav a{min-height:44px;display:inline-flex;align-items:center;gap:6px}.video-titl
 <div class="platforms"><a href="https://open.spotify.com/track/55VZauilyCG0x6htsrwQQN" target="_blank" rel="noopener">Spotify <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Instagram <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></section>
 <section class="band" id="banda"><h2>Somos<br>Nicodemus.</h2><p>Salvemos a Nicodemus.<br>Santiago, Chile.</p></section>
 <section class="live" id="contacto"><h2>En<br>vivo.</h2><div><p>Contrataciones y prensa.</p><a class="button" href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Contacto <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></section>
-</main><footer><div class="footer-top"><img class="footer-logo" src="https://yt3.googleusercontent.com/x3fnAnPD2QV3J7x4tWWY76QjCatW1x4AYLyZWuMix1empsk2x-Y6ZB8lSevjs4595nibXG1o7w=s800-c-k-c0x00ffffff-no-rj" alt="Salvemos a Nicodemus" width="160" height="160" loading="lazy"><div class="socials"><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Instagram <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="#inicio">Arriba <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a></div></div><div class="footer-bottom"><span>© Salvemos a Nicodemus</span><span>Santiago, Chile</span></div></footer></body></html>
+</main><footer><div class="footer-top"><img class="footer-logo" src="https://yt3.googleusercontent.com/x3fnAnPD2QV3J7x4tWWY76QjCatW1x4AYLyZWuMix1empsk2x-Y6ZB8lSevjs4595nibXG1o7w=s800-c-k-c0x00ffffff-no-rj" alt="Salvemos a Nicodemus" width="160" height="160" loading="lazy"><div class="socials"><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Instagram <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="#inicio">Arriba <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a></div></div><div class="footer-bottom"><span>© Salvemos a Nicodemus</span><span>Santiago, Chile</span></div></footer><script>
+(()=>{
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const header=document.querySelector('header');
+ const links=[...document.querySelectorAll('nav a[href^="#"]')];
+ const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+ let pending=false;
+ function updateNav(){
+  pending=false;header.classList.toggle('is-scrolled',scrollY>20);
+  const current=sections.filter(s=>s.getBoundingClientRect().top<=innerHeight*.42).pop();
+  links.forEach(a=>{if(current&&a.hash==='#'+current.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+ }
+ addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(updateNav)}},{passive:true});updateNav();
+ if('IntersectionObserver' in window&&!reduced.matches){
+  const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');reveal.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px 20px 0px'});
+  document.querySelectorAll('.heading,.featured,.clip,.platforms,.band h2,.band p,.live h2,.live>div').forEach(el=>{
+   if(el.getBoundingClientRect().top>innerHeight){el.classList.add('reveal-ready');reveal.observe(el)}
+  });
+  reduced.addEventListener('change',()=>{if(reduced.matches){document.querySelectorAll('.reveal-ready').forEach(el=>el.classList.add('is-visible'));reveal.disconnect()}});
+ }
+ const hero=document.querySelector('.hero');
+ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  let frame=0;
+  hero.addEventListener('pointermove',e=>{
+   if(reduced.matches)return;
+   const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+   cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{
+    hero.style.setProperty('--sleeve-x',x*9+'px');hero.style.setProperty('--sleeve-y',y*7+'px');
+    hero.style.setProperty('--photo-x',-x*5+'px');hero.style.setProperty('--photo-y',15-y*5+'px');
+   });
+  },{passive:true});
+  hero.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);['--sleeve-x','--sleeve-y','--photo-x','--photo-y'].forEach(p=>hero.style.removeProperty(p))});
+ }
+})();
+</script></body></html>
