@@ -357,6 +357,10 @@
       .footer-main { flex-direction: column; gap: 16px; }
       .social-links { justify-content: flex-start; }
     }
+    @media (max-width: 520px) {
+      .hero { min-height: clamp(620px, 150vw, 760px); }
+      .hero-photo { bottom: clamp(210px, calc(150vw - 500px), 260px); }
+    }
     @media (max-width: 360px) {
       .section-head { align-items: flex-start; flex-direction: column; gap: 18px; }
     }
