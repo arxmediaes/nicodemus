@@ -228,13 +228,18 @@
     .track-card__label strong { font-family: var(--display); font-size: clamp(24px, 3.6vw, 46px); font-weight: 400; letter-spacing: -.065em; line-height: .95; text-transform: uppercase; }
     .track-card__label .arrow { width: 24px; height: 24px; color: var(--lime); }
 
-    .band { position: relative; display: grid; grid-template-columns: minmax(230px, .75fr) 1.25fr; align-items: center; gap: clamp(34px, 8vw, 115px); overflow: hidden; padding: clamp(75px, 9vw, 125px) clamp(22px, 8vw, 120px); color: var(--paper-light); background: var(--ink); isolation: isolate; }
-    .band::after { position: absolute; z-index: -1; right: -12%; bottom: -75%; width: 52vw; aspect-ratio: 1; border: 1px solid #ffffff18; border-radius: 50%; box-shadow: 0 0 0 24px #ffffff08, 0 0 0 48px #ffffff06, 0 0 0 72px #ffffff04; content: ""; }
-    .band-mark { display: grid; min-height: 290px; place-items: center; padding: 22px; border: 1px solid #ffffff2c; background: repeating-linear-gradient(135deg, #ffffff05 0 1px, transparent 1px 7px); transform: rotate(-3deg); }
-    .band-mark img { width: min(100%, 380px); height: auto; object-fit: contain; filter: drop-shadow(0 5px 0 #0005); }
-    .band-copy { position: relative; max-width: 760px; padding-left: clamp(24px, 4vw, 56px); border-left: 5px solid var(--lime); }
-    .band-copy h2 { margin: 0 0 25px; color: var(--lime); font-family: var(--display); font-size: clamp(45px, 7vw, 92px); font-weight: 400; letter-spacing: -.08em; line-height: .86; text-transform: uppercase; }
-    .band-copy p { max-width: 710px; margin: 0; font-size: clamp(21px, 2.4vw, 31px); font-weight: 500; line-height: 1.38; letter-spacing: -.035em; }
+    .band { position: relative; overflow: hidden; padding: clamp(75px, 9vw, 125px) clamp(22px, 8vw, 120px) clamp(80px, 9vw, 120px); color: var(--paper-light); background: var(--ink); isolation: isolate; }
+    .band::after { position: absolute; z-index: -1; right: -12%; bottom: -55%; width: 52vw; aspect-ratio: 1; border: 1px solid #ffffff18; border-radius: 50%; box-shadow: 0 0 0 24px #ffffff08, 0 0 0 48px #ffffff06, 0 0 0 72px #ffffff04; content: ""; }
+    .band-intro { display: grid; max-width: 1210px; grid-template-columns: minmax(0, .85fr) 1.15fr; align-items: end; gap: clamp(28px, 7vw, 90px); margin: 0 auto 48px; }
+    .band-intro h2 { margin: 0; color: var(--lime); font-family: var(--display); font-size: clamp(48px, 8vw, 108px); font-weight: 400; letter-spacing: -.085em; line-height: .82; text-transform: uppercase; }
+    .band-intro p { max-width: 720px; margin: 0; padding-left: clamp(24px, 4vw, 56px); border-left: 5px solid var(--lime); font-size: clamp(22px, 2.4vw, 31px); font-weight: 500; line-height: 1.38; letter-spacing: -.035em; }
+    .band-photo { position: relative; max-width: 1210px; margin: 0 auto; padding: 10px; background: var(--paper-light); box-shadow: 10px 12px 0 #b5aa96, 19px 26px 30px #0005; transform: rotate(-.45deg); transition: transform .55s var(--ease), box-shadow .55s var(--ease); }
+    .band-photo::before { position: absolute; z-index: 2; top: -11px; left: 13%; width: 118px; height: 30px; background: linear-gradient(90deg, #c8ed63c8, #d7f38be8, #c8ed63c8); box-shadow: 0 2px 3px #0004; content: ""; transform: rotate(-4deg); }
+    .band-photo:hover { box-shadow: 13px 16px 0 #b5aa96, 24px 32px 36px #0006; transform: rotate(0) translateY(-4px); }
+    .band-photo-window { position: relative; overflow: hidden; aspect-ratio: 2.55; background: #151513; }
+    .band-photo-window::after { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle, #f2ecdf80 .55px, transparent .9px) 0 0 / 4px 4px; content: ""; opacity: .1; mix-blend-mode: soft-light; }
+    .band-photo-window img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: saturate(1.08) contrast(1.05); transition: transform .8s var(--ease); }
+    .band-photo:hover .band-photo-window img { transform: scale(1.025); }
 
     .contact { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 34px; overflow: hidden; padding: clamp(65px, 9vw, 120px) clamp(22px, 8vw, 120px); background: var(--lime); }
     .contact::after { position: absolute; top: -95%; right: 6%; width: 38vw; aspect-ratio: 1; border: 2px solid #11111116; border-radius: 50%; box-shadow: 0 0 0 20px #11111108, 0 0 0 40px #11111106, 0 0 0 60px #11111104; content: ""; pointer-events: none; }
@@ -314,11 +319,13 @@
       .track-card__label strong { font-size: clamp(19px, 5vw, 29px); }
       .track-card__label .arrow { width: 18px; height: 18px; }
       .track-card::before { width: 60px; height: 17px; }
-      .band { grid-template-columns: .6fr 1.4fr; gap: 28px; padding: 72px 22px; }
-      .band-mark { min-height: 180px; padding: 12px; }
-      .band-copy { padding-left: 19px; border-left-width: 4px; }
-      .band-copy h2 { margin-bottom: 17px; font-size: clamp(38px, 8vw, 60px); }
-      .band-copy p { font-size: clamp(17px, 3.3vw, 22px); line-height: 1.38; }
+      .band { padding: 72px 22px 78px; }
+      .band-intro { grid-template-columns: 1fr; gap: 22px; margin-bottom: 32px; }
+      .band-intro h2 { font-size: clamp(54px, 12vw, 78px); }
+      .band-intro p { padding-left: 19px; border-left-width: 4px; font-size: clamp(19px, 4.8vw, 22px); line-height: 1.38; }
+      .band-photo { padding: 7px; }
+      .band-photo::before { top: -8px; width: 78px; height: 21px; }
+      .band-photo-window { aspect-ratio: 1.75; }
       .contact { grid-template-columns: 1fr; gap: 30px; padding: 70px 22px 66px; }
       .contact h2 { font-size: clamp(82px, 21vw, 122px); }
       .contact-action { gap: 17px; }
@@ -347,10 +354,9 @@
       .track-grid { grid-template-columns: 1fr; gap: 26px; }
       .track-card:first-child { margin-top: 5px; }
       .track-card__label strong { font-size: 30px; }
-      .band { grid-template-columns: 1fr; gap: 31px; }
-      .band-mark { width: 68%; min-height: 150px; margin: 0 auto; }
-      .band-copy h2 { font-size: 52px; }
-      .band-copy p { font-size: 19px; }
+      .band-intro { gap: 20px; }
+      .band-intro h2 { font-size: clamp(48px, 14vw, 60px); }
+      .band-photo-window { aspect-ratio: 1.55; }
       .footer-main { flex-direction: column; gap: 16px; }
       .social-links { justify-content: flex-start; }
     }
@@ -445,13 +451,15 @@
     </section>
 
     <section class="band" id="banda" aria-labelledby="band-title">
-      <div class="band-mark reveal">
-        <img src="https://yt3.googleusercontent.com/x3fnAnPD2QV3J7x4tWWY76QjCatW1x4AYLyZWuMix1empsk2x-Y6ZB8lSevjs4595nibXG1o7w=s800-c-k-c0x00ffffff-no-rj" alt="Logotipo oficial de Salvemos a Nicodemus" width="800" height="800" loading="lazy">
+      <div class="band-intro reveal">
+        <h2 id="band-title">Somos<br>Nicodemus.</h2>
+        <p>Cinco amigos. Guitarras, vientos, cuerdas y percusión. Y demasiadas historias para quedarse callados.</p>
       </div>
-      <div class="band-copy reveal">
-        <h2 id="band-title">La banda.</h2>
-        <p>Salvemos a Nicodemus es una banda formada por cinco amigos que, tras años de vivir experiencias que los marcarían para siempre, entendieron que merecen seguir siendo recordadas.</p>
-      </div>
+      <figure class="band-photo reveal">
+        <div class="band-photo-window">
+          <img src="https://yt3.googleusercontent.com/G0BGkgyuRLK-YpoUQ4V9gXIwHmu_1hbahPjkrShizApODgL1n2xiuQO1JYrFtxCEFWDGQkCv=w2560" alt="Los integrantes de Salvemos a Nicodemus y su logotipo oficial" width="2560" height="1440" loading="lazy">
+        </div>
+      </figure>
     </section>
 
     <section class="contact" id="contacto" aria-labelledby="contact-title">
