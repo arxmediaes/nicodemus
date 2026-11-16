@@ -179,28 +179,39 @@
     .music-stage { max-width: 1210px; margin: 0 auto; }
     .video-feature {
       position: relative;
-      display: grid;
-      grid-template-columns: 1.45fr .82fr;
+      min-height: 520px;
       overflow: hidden;
       border: 7px solid var(--ink);
-      background: var(--lime);
+      color: var(--paper-light);
+      background: var(--ink);
       box-shadow: 13px 15px 0 var(--ink);
       transform: rotate(-.6deg);
       transition: transform .5s var(--ease), box-shadow .5s var(--ease);
     }
     .video-feature:hover { box-shadow: 17px 20px 0 var(--ink); transform: rotate(0) translateY(-4px); }
-    .feature-image { position: relative; min-width: 0; overflow: hidden; aspect-ratio: 16 / 9; background: #171714; }
-    .feature-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
-    .video-feature:hover .feature-image img { transform: scale(1.025); }
-    .play-disc { position: absolute; right: 25px; bottom: 24px; display: grid; width: clamp(56px, 7vw, 88px); aspect-ratio: 1; place-items: center; border: 3px solid var(--ink); border-radius: 50%; color: var(--ink); background: var(--lime); box-shadow: 0 5px 0 #1115; transition: transform .35s var(--ease), background .2s ease; }
-    .video-feature:hover .play-disc { transform: scale(1.1) rotate(6deg); background: #ddff94; }
+    .feature-image { position: absolute; z-index: 0; inset: 0; display: block; overflow: hidden; background: #171714; }
+    .feature-image::before { position: absolute; z-index: 1; inset: 0; pointer-events: none; background: radial-gradient(circle, #f2ecdfad .6px, transparent .9px) 0 0 / 4px 4px; content: ""; opacity: .14; mix-blend-mode: soft-light; }
+    .feature-image::after { position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, #1112 0%, #1114 39%, #111c 62%, #111f 100%), linear-gradient(0deg, #111b 0%, transparent 58%); content: ""; }
+    .feature-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 43%; filter: saturate(1.04) contrast(1.04) brightness(.82); transition: transform .8s var(--ease), filter .8s var(--ease); }
+    .video-feature:hover .feature-image img { filter: saturate(1.12) contrast(1.05) brightness(.9); transform: scale(1.035); }
+    .play-disc { position: absolute; z-index: 2; top: 50%; left: 47%; display: grid; width: clamp(60px, 7vw, 88px); aspect-ratio: 1; place-items: center; border: 3px solid var(--ink); border-radius: 50%; color: var(--ink); background: var(--lime); box-shadow: 0 5px 0 #1117; transform: translate(-50%, -50%); transition: transform .35s var(--ease), background .2s ease; }
+    .video-feature:hover .play-disc { background: #ddff94; transform: translate(-50%, -50%) scale(1.1) rotate(6deg); }
     .play-disc::after { width: 0; height: 0; margin-left: 5px; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 18px solid currentColor; content: ""; }
-    .feature-copy { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: clamp(22px, 3.3vw, 46px); }
-    .feature-copy .video-type { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-    .video-type::before { width: 9px; height: 9px; border-radius: 50%; background: var(--ink); content: ""; }
-    .feature-copy h3 { margin: 25px 0; font-family: var(--display); font-size: clamp(48px, 6vw, 84px); font-weight: 400; letter-spacing: -.08em; line-height: .81; text-transform: uppercase; }
-    .watch-link { display: inline-flex; min-height: 50px; align-items: center; gap: 11px; padding: 0 16px; color: var(--paper-light); background: var(--ink); font-size: 15px; font-weight: 800; transition: gap .3s var(--ease), background .2s ease; }
-    .video-feature:hover .watch-link { gap: 16px; background: #25251f; }
+    .feature-copy { position: relative; z-index: 2; display: grid; min-height: 520px; grid-template-columns: minmax(245px, .9fr) minmax(320px, 1.1fr); grid-template-rows: 1fr auto; align-items: center; gap: 16px 28px; padding: clamp(30px, 5vw, 66px); pointer-events: none; }
+    .feature-artwork { position: relative; z-index: 2; display: block; grid-column: 1; grid-row: 1 / 3; justify-self: center; width: clamp(220px, 28vw, 340px); aspect-ratio: 1; filter: drop-shadow(10px 16px 12px #0006); transform: rotate(-6deg); transition: transform .55s var(--ease), filter .55s var(--ease); pointer-events: auto; }
+    .feature-artwork::before { position: absolute; z-index: 2; top: -10px; right: 9%; width: 105px; height: 27px; background: linear-gradient(90deg, #c8ed63cc, #d9f58fe8, #c8ed63c4); box-shadow: 0 2px 3px #0004; content: ""; transform: rotate(-5deg); }
+    .feature-vinyl { position: absolute; z-index: -1; top: 2%; right: -22%; width: 98%; aspect-ratio: 1; overflow: hidden; border: 3px solid #090909; border-radius: 50%; background: repeating-radial-gradient(circle, #10100f 0 1px, #393834 2px, #111 3px 5px); box-shadow: 4px 9px 16px #0008; animation: vinyl-spin 78s linear infinite; }
+    .feature-vinyl::before { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 20deg, transparent, #ffffff38 32deg, transparent 74deg, transparent 184deg, #ffffff23 214deg, transparent 262deg); content: ""; }
+    .feature-cover-frame { position: relative; z-index: 1; overflow: hidden; padding: 7px; border: 1px solid #f2ecdf50; background: #11110f; box-shadow: 4px 6px 0 #0008; }
+    .feature-cover-frame img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform .8s var(--ease); }
+    .video-feature:hover .feature-artwork { filter: drop-shadow(14px 22px 18px #0008); transform: rotate(-2deg) translateY(-5px); }
+    .video-feature:hover .feature-cover-frame img { transform: scale(1.025); }
+    .feature-copy h3 { grid-column: 2; grid-row: 1; align-self: end; margin: 0 0 25px; color: var(--paper-light); font-family: var(--display); font-size: clamp(68px, 8.5vw, 120px); font-weight: 400; letter-spacing: -.09em; line-height: .78; text-transform: uppercase; }
+    .feature-actions { display: flex; grid-column: 2; grid-row: 2; align-items: center; flex-wrap: wrap; gap: 15px 23px; pointer-events: auto; }
+    .watch-link { display: inline-flex; min-height: 50px; align-items: center; gap: 11px; padding: 0 16px; color: var(--ink); background: var(--lime); font-size: 15px; font-weight: 800; transition: gap .3s var(--ease), background .2s ease, transform .25s var(--ease); }
+    .watch-link:hover { gap: 16px; background: #ddff94; transform: translateY(-3px); }
+    .listen-link { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; color: var(--paper-light); border-bottom: 1px solid #f2ecdf80; font-size: 15px; font-weight: 700; transition: color .2s ease, border-color .2s ease; }
+    .listen-link:hover { color: var(--lime); border-color: var(--lime); }
 
     .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 54px); margin: 70px 2% 0; }
     .track-card { position: relative; display: block; padding: 8px; color: var(--paper-light); background: var(--ink); box-shadow: 8px 9px 0 #1113; transition: transform .45s var(--ease), box-shadow .45s var(--ease); }
@@ -210,6 +221,7 @@
     .track-card:last-child::before { right: 12%; left: auto; transform: rotate(5deg); }
     .track-card:hover { z-index: 2; box-shadow: 13px 15px 0 #1113; transform: rotate(0) translateY(-5px); }
     .track-card__image { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 9; background: #292924; }
+    .track-card__image::after { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle, #f2ecdfad .55px, transparent .9px) 0 0 / 4px 4px; content: ""; opacity: .13; mix-blend-mode: soft-light; }
     .track-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s var(--ease); }
     .track-card:hover .track-card__image img { transform: scale(1.035); }
     .track-card__label { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 15px 14px; background: var(--ink); }
@@ -281,11 +293,20 @@
       .section-head { align-items: center; margin-bottom: 35px; }
       .section-head h2 { font-size: clamp(66px, 16vw, 100px); }
       .section-link { min-height: 40px; gap: 6px; font-size: 13px; white-space: nowrap; }
-      .video-feature { grid-template-columns: 1fr; border-width: 5px; box-shadow: 8px 9px 0 var(--ink); }
-      .video-feature:hover { box-shadow: 10px 12px 0 var(--ink); }
-      .feature-copy { min-height: 225px; padding: 21px 20px 20px; }
-      .feature-copy h3 { margin: 20px 0; font-size: clamp(54px, 13vw, 78px); }
-      .play-disc { right: 13px; bottom: 13px; width: 58px; border-width: 2px; }
+      .video-feature { min-height: 0; border-width: 5px; box-shadow: 8px 9px 0 var(--ink); transform: rotate(-.35deg); }
+      .video-feature:hover { box-shadow: 10px 12px 0 var(--ink); transform: rotate(0) translateY(-2px); }
+      .feature-image { position: relative; inset: auto; aspect-ratio: 16 / 9; }
+      .feature-image::after { background: linear-gradient(0deg, #1118 0%, transparent 62%); }
+      .feature-image img { object-position: center 42%; }
+      .feature-copy { min-height: 0; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto auto; align-items: start; gap: 8px 12px; padding: 0 16px 18px; background: var(--ink); }
+      .feature-artwork { grid-column: 1; grid-row: 1 / 3; align-self: start; justify-self: start; width: 100%; max-width: 210px; margin-top: -38px; }
+      .feature-artwork::before { top: -7px; width: 73px; height: 20px; }
+      .feature-copy h3 { grid-column: 2; grid-row: 1; align-self: end; margin: 17px 0 9px; font-size: clamp(34px, 9.5vw, 52px); line-height: .82; }
+      .feature-actions { grid-column: 2; grid-row: 2; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 2px; }
+      .watch-link { min-height: 42px; gap: 8px; padding: 0 11px; font-size: 13px; }
+      .listen-link { min-height: 34px; gap: 6px; font-size: 13px; }
+      .play-disc { top: auto; right: 13px; bottom: 13px; left: auto; width: 58px; border-width: 2px; transform: none; }
+      .video-feature:hover .play-disc { transform: scale(1.08) rotate(6deg); }
       .play-disc::after { border-top-width: 9px; border-bottom-width: 9px; border-left-width: 14px; }
       .track-grid { gap: 25px; margin: 47px 0 0; }
       .track-card { padding: 5px; }
@@ -393,17 +414,23 @@
         <a class="section-link" href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">Todo en YouTube <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
       </div>
       <div class="music-stage">
-        <a class="video-feature reveal" href="https://www.youtube.com/watch?v=_pbHSa8wE04" target="_blank" rel="noopener" aria-label="Ver Cara De Rico, videoclip oficial, en YouTube">
-          <span class="feature-image">
-            <img src="https://i.ytimg.com/vi/_pbHSa8wE04/maxresdefault.jpg" alt="Salvemos a Nicodemus tocando en el videoclip oficial de Cara de rico" width="1280" height="720" loading="lazy">
+        <div class="video-feature reveal">
+          <a class="feature-image" href="https://www.youtube.com/watch?v=_pbHSa8wE04" target="_blank" rel="noopener" aria-label="Ver Cara De Rico, videoclip oficial, en YouTube">
+            <img src="https://i.ytimg.com/vi/_pbHSa8wE04/maxresdefault.jpg" alt="Salvemos a Nicodemus tocando en el videoclip oficial de Cara De Rico" width="1280" height="720" loading="lazy">
             <span class="play-disc" aria-hidden="true"></span>
-          </span>
-          <span class="feature-copy">
-            <span class="video-type">Videoclip oficial</span>
+          </a>
+          <div class="feature-copy">
+            <a class="feature-artwork" href="https://open.spotify.com/album/7tj2zoG8zqpb2ciOSZqAit" target="_blank" rel="noopener" aria-label="Escuchar Cara De Rico en Spotify">
+              <span class="feature-vinyl" aria-hidden="true"></span>
+              <span class="feature-cover-frame"><img src="https://i.scdn.co/image/ab67616d0000aa540c1cf8fd1aeca523fd385dcb" alt="Carátula oficial del single Cara De Rico, de Salvemos a Nicodemus" width="640" height="640" loading="lazy"></span>
+            </a>
             <h3>Cara<br>de rico</h3>
-            <span class="watch-link">Ver videoclip <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span>
-          </span>
-        </a>
+            <div class="feature-actions">
+              <a class="watch-link" href="https://www.youtube.com/watch?v=_pbHSa8wE04" target="_blank" rel="noopener">Ver videoclip <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+              <a class="listen-link" href="https://open.spotify.com/album/7tj2zoG8zqpb2ciOSZqAit" target="_blank" rel="noopener">Escuchar en Spotify <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+            </div>
+          </div>
+        </div>
         <div class="track-grid">
           <a class="track-card reveal" href="https://www.youtube.com/watch?v=I7097fPC9ik" target="_blank" rel="noopener" aria-label="Ver Ya No Eras Tú en YouTube">
             <span class="track-card__image"><img src="https://i.ytimg.com/vi/I7097fPC9ik/maxresdefault.jpg" alt="Fotograma del videoclip Ya No Eras Tú" width="1280" height="720" loading="lazy"></span>
