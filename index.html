@@ -67,7 +67,7 @@
 
     .hero {
       position: relative;
-      min-height: 840px;
+      min-height: clamp(720px, 70vw, 930px);
       overflow: hidden;
       isolation: isolate;
       background:
@@ -210,10 +210,10 @@
     .track-card::before { position: absolute; z-index: 2; top: -8px; left: 12%; width: 93px; height: 22px; background: #c8ed63e8; content: ""; transform: rotate(-4deg); }
     .track-card:last-child::before { right: 12%; left: auto; transform: rotate(5deg); }
     .track-card:hover { z-index: 2; box-shadow: 13px 15px 0 #1113; transform: rotate(0) translateY(-5px); }
-    .track-card__image { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #292924; }
+    .track-card__image { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 9; background: #292924; }
     .track-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s var(--ease); }
     .track-card:hover .track-card__image img { transform: scale(1.035); }
-    .track-card__label { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 15px 14px; }
+    .track-card__label { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 15px 14px; background: var(--ink); }
     .track-card__label strong { font-family: var(--display); font-size: clamp(24px, 3.6vw, 46px); font-weight: 400; letter-spacing: -.065em; line-height: .95; text-transform: uppercase; }
     .track-card__label .arrow { width: 24px; height: 24px; color: var(--lime); }
 
