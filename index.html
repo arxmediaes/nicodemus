@@ -236,9 +236,9 @@
     .band-photo { position: relative; max-width: 1210px; margin: 0 auto; padding: 10px; background: var(--paper-light); box-shadow: 10px 12px 0 #b5aa96, 19px 26px 30px #0005; transform: rotate(-.45deg); transition: transform .55s var(--ease), box-shadow .55s var(--ease); }
     .band-photo::before { position: absolute; z-index: 2; top: -11px; left: 13%; width: 118px; height: 30px; background: linear-gradient(90deg, #c8ed63c8, #d7f38be8, #c8ed63c8); box-shadow: 0 2px 3px #0004; content: ""; transform: rotate(-4deg); }
     .band-photo:hover { box-shadow: 13px 16px 0 #b5aa96, 24px 32px 36px #0006; transform: rotate(0) translateY(-4px); }
-    .band-photo-window { position: relative; overflow: hidden; aspect-ratio: 2.55; background: #151513; }
+    .band-photo-window { position: relative; overflow: hidden; aspect-ratio: 1088 / 433; background: #151513; }
     .band-photo-window::after { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle, #f2ecdf80 .55px, transparent .9px) 0 0 / 4px 4px; content: ""; opacity: .1; mix-blend-mode: soft-light; }
-    .band-photo-window img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: saturate(1.08) contrast(1.05); transition: transform .8s var(--ease); }
+    .band-photo-window img { position: absolute; top: -116.16%; left: -46.875%; width: 235.294%; max-width: none; height: auto; filter: saturate(1.08) contrast(1.05); transition: transform .8s var(--ease); }
     .band-photo:hover .band-photo-window img { transform: scale(1.025); }
 
     .contact { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 34px; overflow: hidden; padding: clamp(65px, 9vw, 120px) clamp(22px, 8vw, 120px); background: var(--lime); }
@@ -325,7 +325,6 @@
       .band-intro p { padding-left: 19px; border-left-width: 4px; font-size: clamp(19px, 4.8vw, 22px); line-height: 1.38; }
       .band-photo { padding: 7px; }
       .band-photo::before { top: -8px; width: 78px; height: 21px; }
-      .band-photo-window { aspect-ratio: 1.75; }
       .contact { grid-template-columns: 1fr; gap: 30px; padding: 70px 22px 66px; }
       .contact h2 { font-size: clamp(82px, 21vw, 122px); }
       .contact-action { gap: 17px; }
@@ -356,7 +355,6 @@
       .track-card__label strong { font-size: 30px; }
       .band-intro { gap: 20px; }
       .band-intro h2 { font-size: clamp(48px, 14vw, 60px); }
-      .band-photo-window { aspect-ratio: 1.55; }
       .footer-main { flex-direction: column; gap: 16px; }
       .social-links { justify-content: flex-start; }
     }
@@ -457,7 +455,7 @@
       </div>
       <figure class="band-photo reveal">
         <div class="band-photo-window">
-          <img src="https://yt3.googleusercontent.com/G0BGkgyuRLK-YpoUQ4V9gXIwHmu_1hbahPjkrShizApODgL1n2xiuQO1JYrFtxCEFWDGQkCv=w2560" alt="Los integrantes de Salvemos a Nicodemus y su logotipo oficial" width="2560" height="1440" loading="lazy">
+          <img src="https://yt3.googleusercontent.com/G0BGkgyuRLK-YpoUQ4V9gXIwHmu_1hbahPjkrShizApODgL1n2xiuQO1JYrFtxCEFWDGQkCv=w2560" alt="Los cinco integrantes de Salvemos a Nicodemus" width="2560" height="1440" loading="lazy">
         </div>
       </figure>
     </section>
