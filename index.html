@@ -48,6 +48,17 @@ nav a{min-height:44px;display:inline-flex;align-items:center;gap:6px}.video-titl
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.hero-emblem{transition:transform .35s}.hero-emblem:hover{transform:rotate(-3deg) translateY(-5px)}}
 @media(max-width:700px){.hero{padding-top:65px;padding-bottom:55px;gap:38px}.hero-emblem{width:250px;max-width:76%;margin:0 auto;padding:0}.single-caption{padding:14px 5px 6px;gap:10px}.single-caption strong{font-size:18px}.hero-emblem .button{font-size:13px;padding:10px 12px}.photo-print{transform:rotate(2deg);box-shadow:6px 8px 0 #111,12px 17px 15px #30291f30}.single-sleeve:after{bottom:75px}}
 
+/* Movement that gives the original hero more depth without changing its art direction. */
+.hero{isolation:isolate;overflow:hidden}
+.hero:after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.8;background:radial-gradient(ellipse 420px 310px at var(--glow-x,72%) var(--glow-y,22%),#fff4,transparent 75%);mix-blend-mode:soft-light}
+.hero h1,.photo-print{z-index:1}.hero-emblem{z-index:4}
+.vinyl{animation:vinyl-turn 72s linear infinite}
+@keyframes vinyl-turn{to{transform:rotate(360deg)}}
+.single-sleeve{animation:sleeve-arrive .85s var(--ease-out,.22s) both}
+@keyframes sleeve-arrive{from{opacity:0;transform:translateY(20px) rotate(-3deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+.photo-print{animation:photo-arrive .9s .12s cubic-bezier(.22,1,.36,1) both}
+@keyframes photo-arrive{from{opacity:0;transform:translate3d(var(--photo-x,0px),calc(var(--photo-y,15px) + 24px),0) rotate(5deg)}to{opacity:1;transform:translate3d(var(--photo-x,0px),var(--photo-y,15px),0) rotate(3deg)}}
+.photo-print:hover{filter:drop-shadow(0 18px 20px #17130c30)}
 /* Interaction and spacing system */
 :root{--ease-out:cubic-bezier(.22,1,.36,1)}
 section[id]{scroll-margin-top:100px}
@@ -91,7 +102,7 @@ a:hover>.arrow-icon,.button:hover .arrow-icon{transform:translate(2px,-2px)}
 <main><section class="hero" id="inicio"><h1>Salvemos a Nicodemus</h1><div class="hero-emblem"><div class="vinyl" aria-hidden="true"><span></span></div><div class="single-sleeve"><img src="https://m.media-amazon.com/images/I/418zrj55%2BKL.jpg" alt="Portada del single Ya no eras tú de Salvemos a Nicodemus" width="500" height="500" fetchpriority="high"><div class="single-caption"><strong>Ya no eras tú</strong><a class="button" href="https://open.spotify.com/track/55VZauilyCG0x6htsrwQQN" target="_blank" rel="noopener">Escuchar <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></div></div><div class="photo-print"><div class="photo-crop"><img src="https://yt3.googleusercontent.com/G0BGkgyuRLK-YpoUQ4V9gXIwHmu_1hbahPjkrShizApODgL1n2xiuQO1JYrFtxCEFWDGQkCv=w2560" alt="Los cinco integrantes de Salvemos a Nicodemus" fetchpriority="high"></div></div></section>
 <section class="music" id="musica"><div class="heading"><h2>Que<br>suene.</h2><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">Todo en YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
 <a class="featured" href="https://www.youtube.com/watch?v=I7097fPC9ik" target="_blank" rel="noopener" aria-label="Ver Ya No Eras Tú en YouTube"><img src="https://i.ytimg.com/vi/I7097fPC9ik/hq720.jpg" alt="La vocalista de Nicodemus en el videoclip Ya No Eras Tú" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="video-title">Ya no eras tú <span aria-hidden="true"><svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></span></a>
-<div class="video-pair"><a class="clip" href="https://www.youtube.com/watch?v=IrGo4mOsAdg" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/IrGo4mOsAdg/hq720.jpg" alt="Escena del videoclip Pal 18 en Chile" width="1280" height="720" loading="lazy"><span class="video-title">Pal 18 en Chile <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a><a class="clip" href="https://www.youtube.com/watch?v=s4MMbloeXls" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/s4MMbloeXls/hq720.jpg" alt="La banda interpretando Ya No Eras Tú" width="1280" height="720" loading="lazy"><span class="video-title">Ya no eras tú · Lyrics <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a></div>
+<div class="video-pair"><a class="clip" href="https://www.youtube.com/watch?v=IrGo4mOsAdg" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/IrGo4mOsAdg/hq720.jpg" alt="Escena del videoclip Pal 18 en Chile" width="1280" height="720" loading="lazy"><span class="video-title">Pal 18 en Chile <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a><a class="clip" href="https://www.youtube.com/watch?v=iDaw8IiJ4_A" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/iDaw8IiJ4_A/hq720.jpg" alt="Video oficial de Cara de rico" width="1280" height="720" loading="lazy"><span class="video-title">Cara de rico <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a></div>
 <div class="platforms"><a href="https://open.spotify.com/track/55VZauilyCG0x6htsrwQQN" target="_blank" rel="noopener">Spotify <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.youtube.com/@SalvemosANicodemus" target="_blank" rel="noopener">YouTube <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Instagram <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></section>
 <section class="band" id="banda"><h2>Somos<br>Nicodemus.</h2><p>Salvemos a Nicodemus.<br>Santiago, Chile.</p></section>
 <section class="live" id="contacto"><h2>En<br>vivo.</h2><div><p>Contrataciones y prensa.</p><a class="button" href="https://www.instagram.com/salvemosanicodemus/" target="_blank" rel="noopener">Contacto <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></section>
@@ -124,9 +135,10 @@ a:hover>.arrow-icon,.button:hover .arrow-icon{transform:translate(2px,-2px)}
    cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{
     hero.style.setProperty('--sleeve-x',x*9+'px');hero.style.setProperty('--sleeve-y',y*7+'px');
     hero.style.setProperty('--photo-x',-x*5+'px');hero.style.setProperty('--photo-y',15-y*5+'px');
+    hero.style.setProperty('--glow-x',(x+.5)*100+'%');hero.style.setProperty('--glow-y',(y+.5)*100+'%');
    });
   },{passive:true});
-  hero.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);['--sleeve-x','--sleeve-y','--photo-x','--photo-y'].forEach(p=>hero.style.removeProperty(p))});
+  hero.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);['--sleeve-x','--sleeve-y','--photo-x','--photo-y','--glow-x','--glow-y'].forEach(p=>hero.style.removeProperty(p))});
  }
 })();
 </script></body></html>
