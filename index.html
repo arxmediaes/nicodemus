@@ -95,12 +95,11 @@
       box-shadow: 0 0 0 18px #11111105, 0 0 0 36px #11111104, 0 0 0 54px #11111103;
       content: "";
     }
-    .hero-copy { position: absolute; z-index: 5; top: clamp(48px, 6vw, 86px); left: clamp(22px, 6.2vw, 96px); }
+    .hero-copy { position: absolute; z-index: 5; top: clamp(48px, 6vw, 86px); left: clamp(22px, 6.2vw, 96px); width: min(88%, 1230px); }
     .hero h1 { max-width: 92vw; margin: 0; font-family: var(--display); font-size: clamp(68px, 11vw, 158px); font-weight: 400; letter-spacing: -.085em; line-height: .78; text-transform: uppercase; }
     .hero h1 span { display: inline-block; margin-top: .08em; padding: 0 .09em .09em .025em; background: linear-gradient(transparent 13%, var(--lime) 13% 88%, transparent 88%); }
-    .hero-tagline { margin: 23px 0 0 5px; font-size: clamp(23px, 2.6vw, 36px); font-weight: 700; letter-spacing: -.055em; }
-    .hero-tagline span { position: relative; display: inline-block; padding: 0 3px 5px; }
-    .hero-tagline span::after { position: absolute; right: -4px; bottom: 0; left: -3px; height: 5px; background: var(--lime); content: ""; transform: rotate(-1.5deg); }
+    .hero-tagline { position: absolute; top: clamp(205px, 20vw, 270px); right: 0; margin: 0; font-size: clamp(23px, 2.6vw, 36px); font-weight: 700; letter-spacing: -.055em; }
+    .hero-tagline span { position: relative; display: inline-block; padding: 4px 10px 7px; background: var(--lime); transform: rotate(-1.4deg); }
 
     .hero-photo {
       position: absolute;
@@ -262,9 +261,9 @@
       .nav-contact { gap: 4px; padding: 0 8px; border: 0; }
       .hero { min-height: 670px; }
       .hero::after { top: 36%; right: -23%; width: 76vw; }
-      .hero-copy { top: 43px; left: 19px; }
+      .hero-copy { top: 43px; right: 19px; left: 19px; width: auto; }
       .hero h1 { max-width: calc(100vw - 34px); font-size: clamp(58px, 14vw, 88px); letter-spacing: -.09em; }
-      .hero-tagline { margin-top: 16px; font-size: clamp(22px, 6vw, 29px); }
+      .hero-tagline { position: static; margin-top: 16px; font-size: clamp(22px, 6vw, 29px); }
       .hero-photo { bottom: 116px; left: 5%; width: 91%; padding: 8px; }
       .hero-photo::before { top: -9px; width: 87px; height: 24px; }
       .photo-window img { filter: grayscale(1) contrast(1.1); }
@@ -316,7 +315,7 @@
       .main-nav { gap: 9px; font-size: 10px; }
       .nav-contact { padding: 0 3px; }
       .hero { min-height: 620px; }
-      .hero-copy { top: 37px; left: 15px; }
+      .hero-copy { top: 37px; right: 15px; left: 15px; }
       .hero h1 { font-size: clamp(54px, 13.4vw, 66px); }
       .hero-tagline { margin-top: 14px; font-size: 22px; }
       .hero-photo { bottom: 105px; }
